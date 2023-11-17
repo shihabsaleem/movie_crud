@@ -1,12 +1,30 @@
 {% extends 'base.html' %}
-{% block body %}
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="text" name="mname" placeholder="name">
-    <input type="file" name="mposter" placeholder="poster">
-    <input type="text" name="mdesc" placeholder="description">
-    <input type="number" name="myear" placeholder="year">
-    <input type="submit">
-</form>
 
+{% block body %}
+<div class="container pt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="mname" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="mname" name="mname" placeholder="Enter movie name">
+                </div>
+                <div class="mb-3">
+                    <label for="mposter" class="form-label">Poster</label>
+                    <input type="file" class="form-control" id="mposter" name="mposter">
+                </div>
+                <div class="mb-3">
+                    <label for="mdesc" class="form-label">Description</label>
+                    <textarea class="form-control" id="mdesc" name="mdesc" placeholder="Enter movie description"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="myear" class="form-label">Year</label>
+                    <input type="number" class="form-control" id="myear" name="myear" placeholder="Enter year">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
